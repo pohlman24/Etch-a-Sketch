@@ -1,0 +1,24 @@
+* {
+  margin:0;
+  padding:0;
+}
+.grid {
+  background-color: blue;
+  color: blue;
+  border: 0.5px solid black;
+}
+
+#container {
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  grid-template-rows: repeat(16, 1fr);
+  position: absolute;
+  bottom: 20%;
+  left: 33%;
+  height: 500px;
+  width: 500px;
+  color: red;
+  background-color: red;
+
+
+}

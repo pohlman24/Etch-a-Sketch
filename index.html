@@ -2,38 +2,33 @@
 <html>
   <head>
     <title>Etch-a-Sketch</title>
-    <link href='style.css' rel= 'stylesheet' type= 'text/css'>
+    <link href = 'style.css' rel = "stylesheet" type = 'text/css'>
   </head>
   <body>
-    
+    <div id = 'container'>
+
+    </div>
+
   </body>
 
 
 
+  <script>
+    const container = document.querySelector('#container');
+    const gridDiv = document.createElement('div');
+    //makes 256 divs
+    for(i = 0; i< 256; i++) {
+      const gridDiv = document.createElement('div');
+      gridDiv.classList.add('grid');
+      container.appendChild(gridDiv);
+    }
+console.log('testing');
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  </<script type="text/javascript">
+      document.querySelector('.grid').addEventListener('mouseenter', function () {
+      console.log('working');
+      document.querySelector('.grid').setAttribute('style', ['background-color: green;']);
+      console.log('working');
+    });
 
   </script>
 </html>
