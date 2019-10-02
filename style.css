@@ -2,11 +2,13 @@
   margin:0;
   padding:0;
 }
-.grid {
+
+.grid{
   background-color: blue;
   color: blue;
-  border: 0.5px solid black;
+  border: 1px solid black;
 }
+
 
 #container {
   display: grid;

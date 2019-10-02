@@ -6,7 +6,6 @@
   </head>
   <body>
     <div id = 'container'>
-
     </div>
 
   </body>
@@ -20,15 +19,28 @@
     for(i = 0; i< 256; i++) {
       const gridDiv = document.createElement('div');
       gridDiv.classList.add('grid');
+      gridDiv.id = 'id' + i
       container.appendChild(gridDiv);
     }
-console.log('testing');
-
-      document.querySelector('.grid').addEventListener('mouseenter', function () {
-      console.log('working');
-      document.querySelector('.grid').setAttribute('style', ['background-color: green;']);
-      console.log('working');
+/*function to change color of grid
+    function changeColor() {
+    console.log('TEST');
+    document.querySelector('.grid').style.backgroundColor = 'green';
+  }
+  */
+/*
+    document.querySelector('#id0').addEventListener('mouseover', function (){
+      document.querySelector('#id0').style.backgroundColor = 'green';
     });
-
+    document.querySelector('#id1').addEventListener('mouseover', function (){
+      document.querySelector('#id1').style.backgroundColor = 'green';
+    });
+*/
+  for(n = 0; n< 256; n ++) {
+    let reece = 'id' + n
+    document.getElementById(reece).addEventListener('mouseover', function (){
+      document.getElementById(reece).style.backgroundColor = 'green';
+    })
+  }
   </script>
 </html>
