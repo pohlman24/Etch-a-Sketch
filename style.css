@@ -4,6 +4,12 @@
   background-color: #28334AFF /* dark navy color */
 }
 
+:root {
+  --grid_row: 16;
+  --grid_col: 16;
+
+}
+
 .grid{
   background-color: #FBDE44FF; /* yellow color */
   border: 1px solid black;
@@ -11,15 +17,15 @@
 
 #container {
   display: grid;
-  grid-template-columns: repeat(16, 1fr);
-  grid-template-rows: repeat(16, 1fr);
+  grid-template-columns: repeat(var(--grid_col), 1fr);
+  grid-template-rows: repeat(var(--grid_row), 1fr);
   position: absolute;
   bottom: 5%;
   left: 25%;
-  height: 80%;
-  width: 50%;
+  min-height: 80%;
+  min-width: 50%;
   color: red;
-   
+
 }
 
 #clear{

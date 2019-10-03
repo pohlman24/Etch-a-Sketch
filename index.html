@@ -45,12 +45,23 @@
   }
     // Code for new button
     document.getElementById('new_grid').addEventListener("click", function(){
+      let root = document.documentElement;
       let grid_size = parseInt(prompt('What Grid Size?'));
+      // gets ride of current grid size
       for(n = 0; n< 256; n ++) {
       let reece = 'id' + n
-      document.getElementById(reece).style.visibility = 'hidden';
+      document.getElementById(reece).style.display = 'none';
     }
-    
+      console.log(grid_size);
+      root.style.setProperty('--grid_row', grid_size);
+      root.style.setProperty('--grid_col', grid_size);
+      for(t = 0; t < grid_size * grid_size ; t++) {
+        const gridDiv = document.createElement('div');
+        gridDiv.classList.add('grid');
+        gridDiv.id = 'idd' + t
+        container.appendChild(gridDiv);
+      }
+
     })
 
 
