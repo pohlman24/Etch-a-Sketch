@@ -22,7 +22,8 @@
   <script>
     const container = document.querySelector('#container');
     const gridDiv = document.createElement('div');
-    //makes the 16x16 Grid
+
+    //makes the default 16x16 Grid
     for(i = 0; i< 256; i++) {
       const gridDiv = document.createElement('div');
       gridDiv.classList.add('grid');
@@ -36,63 +37,44 @@
         document.getElementById(reece).style.backgroundColor = '#F65058FF'; //color red
       })
     }
-    // Code for clear button
-    for(n = 0; n< 256; n ++) {
-      let reece = 'id' + n
-    document.getElementById('clear').addEventListener("click", function() {
-      document.getElementById(reece).style.backgroundColor = '#FBDE44FF'; // color yellow
-    })
+    // function for clear button
+    function clear(n) {
+      for(n = 0; n< 256; n ++) {
+        let cell = 'id' + n
+        document.getElementById(cell).style.backgroundColor = '#FBDE44FF'; // color yellow
+    }
   }
-    // Code for new button
-    document.getElementById('new_grid').addEventListener("click", function(){
+
+    // Code for new grid
+    function new_grid() {
       let root = document.documentElement;
       let grid_size = parseInt(prompt('What Grid Size?'));
-      // gets ride of current grid size
-      for(n = 0; n< 256; n ++) {
-      let reece = 'id' + n
-      document.getElementById(reece).style.display = 'none';
-    }
-      console.log(grid_size);
+      hide();
       root.style.setProperty('--grid_row', grid_size);
       root.style.setProperty('--grid_col', grid_size);
+        //puts new grid on screen
       for(t = 0; t < grid_size * grid_size ; t++) {
         const gridDiv = document.createElement('div');
         gridDiv.classList.add('grid');
         gridDiv.id = 'idd' + t
         container.appendChild(gridDiv);
+          //adds hover feature
+        let cell = 'idd' + t
+        document.getElementById(cell).addEventListener('mouseover', function (){
+          document.getElementById(cell).style.backgroundColor = '#F65058FF'; //color red
+        })
+    }
+    // --------------------------------part of function new_grid----------------------------------- function to get ride of current grid on screen
+      function hide() {
+        for(n = 0; n< 256; n ++) {
+        let cell = 'id' + n;
+        document.getElementById(cell).style.display = 'none';
+        }
       }
+    }
+    // event listeners for buttons
+      document.getElementById('new_grid').addEventListener("click", new_grid);
+      document.getElementById('clear').addEventListener("click", clear);
 
-    })
-
-
-/*
-SO when button clicked:
-1. clear current divs
-2. prompt user
-3. generate new grid based on user size input
-?? will the clear button get messed up
-*/
-
-
-// PROGRESS NOTE: this is what i orginally thought would work but realized that because all the divs shared a class it wouldnt be able to select a specific one. Would only change color of first cell.
-/*
-    //function to change color of grid
-        function changeColor() {
-        console.log('TEST');
-        document.querySelector('.grid').style.backgroundColor = 'green';
-      }
-      document.querySelector(.grid).addEventListener('mouseover', changeColor);
-*/
-
-// PROGRESS NOTE: this is when i realized that i needed each div to have a individual id to select it by but couldnt figure out how to create an eventlistener for all 256 divs without typing out by hand.
-/*
-    document.querySelector('#id0').addEventListener('mouseover', function (){
-      document.querySelector('#id0').style.backgroundColor = 'green';
-    });
-// Then tried this
-    document.querySelector('#id' + i).addEventListener('mouseover', function (){
-      document.querySelector('#id' + i).style.backgroundColor = 'green';
-    });
-*/
   </script>
 </html>
