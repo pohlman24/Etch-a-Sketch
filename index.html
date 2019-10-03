@@ -5,6 +5,13 @@
     <link href = 'style.css' rel = "stylesheet" type = 'text/css'>
   </head>
   <body>
+    <div class ='buttons'>
+      <button id='clear'>Clear</button>
+      <button id='new_grid'>New</button>
+      <button id='black_brush'>Red</button>
+      <button id='rainbow_brush'>Rainbow</button>
+      <button id='shading_brush'>Shades</button>
+    </div>
     <div id = 'container'>
     </div>
 
@@ -15,32 +22,62 @@
   <script>
     const container = document.querySelector('#container');
     const gridDiv = document.createElement('div');
-    //makes 256 divs
+    //makes 256 divs with class 'grid' and id 'id'
     for(i = 0; i< 256; i++) {
       const gridDiv = document.createElement('div');
       gridDiv.classList.add('grid');
       gridDiv.id = 'id' + i
       container.appendChild(gridDiv);
     }
-/*function to change color of grid
-    function changeColor() {
-    console.log('TEST');
-    document.querySelector('.grid').style.backgroundColor = 'green';
+    // color changer as hover
+    for(n = 0; n< 256; n ++) {
+      let reece = 'id' + n
+      document.getElementById(reece).addEventListener('mouseover', function (){
+        document.getElementById(reece).style.backgroundColor = '#F65058FF'; //color red
+      })
+    }
+    // Code for clear button
+    for(n = 0; n< 256; n ++) {
+      let reece = 'id' + n
+    document.getElementById('clear').addEventListener("click", function() {
+      document.getElementById(reece).style.backgroundColor = '#FBDE44FF'; // color yellow
+    })
   }
-  */
+    // Code for new button
+    document.getElementById('new_grid').addEventListener("click", function(){
+      
+      let grid_size = parseInt(prompt('What Grid Size?'));
+    })
+
+
+/*
+SO when button clicked:
+1. clear current divs
+2. prompt user
+3. generate new grid based on user size input
+?? will the clear button get messed up
+*/
+
+
+// PROGRESS NOTE: this is what i orginally thought would work but realized that because all the divs shared a class it wouldnt be able to select a specific one. Would only change color of first cell.
+/*
+    //function to change color of grid
+        function changeColor() {
+        console.log('TEST');
+        document.querySelector('.grid').style.backgroundColor = 'green';
+      }
+      document.querySelector(.grid).addEventListener('mouseover', changeColor);
+*/
+
+// PROGRESS NOTE: this is when i realized that i needed each div to have a individual id to select it by but couldnt figure out how to create an eventlistener for all 256 divs without typing out by hand.
 /*
     document.querySelector('#id0').addEventListener('mouseover', function (){
       document.querySelector('#id0').style.backgroundColor = 'green';
     });
-    document.querySelector('#id1').addEventListener('mouseover', function (){
-      document.querySelector('#id1').style.backgroundColor = 'green';
+// Then tried this
+    document.querySelector('#id' + i).addEventListener('mouseover', function (){
+      document.querySelector('#id' + i).style.backgroundColor = 'green';
     });
 */
-  for(n = 0; n< 256; n ++) {
-    let reece = 'id' + n
-    document.getElementById(reece).addEventListener('mouseover', function (){
-      document.getElementById(reece).style.backgroundColor = 'green';
-    })
-  }
   </script>
 </html>
