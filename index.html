@@ -22,7 +22,7 @@
   <script>
     const container = document.querySelector('#container');
     const gridDiv = document.createElement('div');
-    //makes 256 divs with class 'grid' and id 'id'
+    //makes the 16x16 Grid
     for(i = 0; i< 256; i++) {
       const gridDiv = document.createElement('div');
       gridDiv.classList.add('grid');
@@ -45,8 +45,12 @@
   }
     // Code for new button
     document.getElementById('new_grid').addEventListener("click", function(){
-      
       let grid_size = parseInt(prompt('What Grid Size?'));
+      for(n = 0; n< 256; n ++) {
+      let reece = 'id' + n
+      document.getElementById(reece).style.visibility = 'hidden';
+    }
+    
     })
 
 

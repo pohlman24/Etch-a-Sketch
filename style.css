@@ -6,7 +6,7 @@
 
 .grid{
   background-color: #FBDE44FF; /* yellow color */
-  border: 1px solid black; 
+  border: 1px solid black;
 }
 
 #container {
@@ -19,6 +19,7 @@
   height: 80%;
   width: 50%;
   color: red;
+   
 }
 
 #clear{
