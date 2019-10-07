@@ -27,12 +27,12 @@ function clear() {
 }
 function new_grid() {
   let root = document.documentElement;
+  hide();
   window.grid_size = parseInt(prompt('What Grid Size?'));
   let grid_size = window.grid_size
-  console.log('old z ' + z);
-  hide();
+  console.log('old z ' + hide_current_div[z]);
   z = z + 1;
-  console.log('new z ' + z);
+  console.log('new z ' + hide_current_div[z]);
   root.style.setProperty('--grid_row', grid_size);
   root.style.setProperty('--grid_col', grid_size);
     //puts new grid on screen
@@ -52,13 +52,16 @@ function new_grid() {
     if (z == 0){
       for(n = 0; n< 256; n ++) {
       let cell = 'id' + hide_current_div[z] + n;
-      document.getElementById(cell).style.display = 'none';
+      let cellid = document.getElementById(cell);
+      cellid.remove();
       }
     }else {
+      console.log('the window.grid_size is ' + window.grid_size);
       for(n = 0; n< window.grid_size * window.grid_size; n ++) {
       let cell = 'id' + hide_current_div[z] + n;
-      console.log(hide_current_div[z])
-      document.getElementById(cell).style.display = 'none';
+      let cellid = document.getElementById(cell);
+      console.log('the cell is ' + cell);
+      cellid.remove();
       }
     }
   }
@@ -70,5 +73,8 @@ function new_grid() {
   });
   document.getElementById('clear').addEventListener("click", clear);
 
-// right now when you try to go from a new grid to a bigger new grid it doesnt work
-// but you can go from a bigger one to smaller one, but the contaienr gets messed up at bottom
+
+// okay the hide() function will run update to the size of the previous grid but then ERRORs,
+// example: if i make new grid 4 it will work but if i try to change it again it will run/remove uptill it gets to 4*4
+// so i need to make it so that it removes the specfic prvious vaule, not the new grid number
+//--------------------------------need to fix the hide() function!!-----------------------------------------------------
