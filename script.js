@@ -1,5 +1,6 @@
 const container = document.querySelector('#container');
 const gridDiv = document.createElement('div');
+let on = true;
 //list to get ride of current grid
 let hide_current_div = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
 // z is select the item in the array
@@ -70,6 +71,24 @@ function new_grid() {
     new_grid()
   });
   document.getElementById('clear').addEventListener("click", clear);
+  document.getElementById('border').addEventListener('click', function(){
+    if (on == false){
+      for(n = 0; n< window.grid_size * window.grid_size; n ++) {
+      let cell = 'id' + hide_current_div[z] + n;
+      let cellid = document.getElementById(cell);
+      cellid.style.border = '1px solid gray';
+      on = true;
+    }
+  }else{
+    for(n = 0; n< window.grid_size * window.grid_size; n ++) {
+    let cell = 'id' + hide_current_div[z] + n;
+    let cellid = document.getElementById(cell);
+    cellid.style.border = '0';
+    on = false;
+  }
+}
+})
+
 
 
 // okay the hide() function will run update to the size of the previous grid but then ERRORs,

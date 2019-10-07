@@ -85,7 +85,7 @@
   padding-right: .5em;
   right: 16%;
 }
-#shading_brush {
+#border {
   border: 3px solid #F65058FF; /* red */
   background-color: #28334AFF; /* dark navy color */
   color: #FBDE44FF;
