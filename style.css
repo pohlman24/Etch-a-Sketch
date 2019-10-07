@@ -46,29 +46,31 @@
   background-color: #28334AFF; /* dark navy color */
   color: #FBDE44FF;
   font-size: 1.5em;
-  position: absolute;
+  position: relative;
   width: auto;
   height: 100%;
   padding-top: 2px;
   padding-bottom: 2px;
   padding-left: .5em;
   padding-right: .5em;
-  left: 12.8%;
+  margin-left: 2px;
 }
 
-#black_brush {
+#red_brush {
   border: 3px solid #F65058FF; /* red */
   background-color: #28334AFF; /* dark navy color */
   color: #FBDE44FF;
   font-size: 1.5em;
-  position: absolute;
+  position: relative;
   width: auto;
   height: 100%;
   padding-top: 2px;
   padding-bottom: 2px;
   padding-left: .5em;
   padding-right: .5em;
-  right: 33.5%;
+  margin-left: 2.5px;
+  margin-right: 2.5px;
+  float: right;
 }
 
 #rainbow_brush {
@@ -76,35 +78,39 @@
   background-color: #28334AFF; /* dark navy color */
   color: #FBDE44FF;
   font-size: 1.5em;
-  position: absolute;
+  position: relative;
   width: auto;
   height: 100%;
   padding-top: 2px;
   padding-bottom: 2px;
   padding-left: .5em;
   padding-right: .5em;
-  right: 16%;
+  margin-left: 2.5px;
+  margin-right: 2.5px;
+  float: right;
 }
 #border {
   border: 3px solid #F65058FF; /* red */
   background-color: #28334AFF; /* dark navy color */
   color: #FBDE44FF;
   font-size: 1.5em;
-  position: absolute;
+  position: relative;
   width: auto;
   height: 100%;
   padding-top: 2px;
   padding-bottom: 2px;
   padding-left: .5em;
   padding-right: .5em;
-  right: 0%;
+  margin-left: 2.5px;
+  margin-right: 2.5px;
+  float: right;
 }
 
 
 
 .buttons {
   position: absolute;
-  top: 5%;
+  top: 6%;
   left: 25%;
   height: 8%;
   width: 50%;
