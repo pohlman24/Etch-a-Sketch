@@ -20,27 +20,19 @@ for(n = 0; n< 256; n ++) {
 }
 // function for clear button
 function clear() {
-  console.log(window.grid_size);
   for(n = 0; n < window.grid_size * window.grid_size; n ++) {
     let cell = 'id' + hide_current_div[z] + n
-    console.log(cell);
     document.getElementById(cell).style.backgroundColor = '#FBDE44FF'; // color yellow
   }
 }
-
-/*
-function new_clear(numGrid) {
-  for(n = 0; n< numGrid; n ++) {
-    let cell = 'id' + hide_current_div[z] + n
-    document.getElementById(cell).style.backgroundColor = '#FBDE44FF'; // color yellow
-  }
-}
-*/
-function new_grid(idNum) {
+function new_grid() {
   let root = document.documentElement;
   window.grid_size = parseInt(prompt('What Grid Size?'));
+  let grid_size = window.grid_size
+  console.log('old z ' + z);
   hide();
   z = z + 1;
+  console.log('new z ' + z);
   root.style.setProperty('--grid_row', grid_size);
   root.style.setProperty('--grid_col', grid_size);
     //puts new grid on screen
@@ -56,43 +48,27 @@ function new_grid(idNum) {
     })
 }
 // --------------------------------part of function new_grid----------------------------------- function to get ride of current grid on screen
-  function hide() {    // idNum is the letter from the array currently on screen...... n is the number of each specfic grid
-    for(n = 0; n< 256; n ++) {
-    let cell = 'id' + hide_current_div[z] + n;
-    console.log('hide ' + cell);
-    document.getElementById(cell).style.display = 'none';
+  function hide() {
+    if (z == 0){
+      for(n = 0; n< 256; n ++) {
+      let cell = 'id' + hide_current_div[z] + n;
+      document.getElementById(cell).style.display = 'none';
+      }
+    }else {
+      for(n = 0; n< window.grid_size * window.grid_size; n ++) {
+      let cell = 'id' + hide_current_div[z] + n;
+      console.log(hide_current_div[z])
+      document.getElementById(cell).style.display = 'none';
+      }
     }
   }
 }
-/*
-function new_hide(idNum, numGrid) {
-  x = x + 1;
-  for(n = 0; n< numGrid; n ++) {
-  let cell = 'id' + idNum + n;
-  document.getElementById(cell).style.display = 'none';
-  }
-}
-*/
-/*
-function clear_act(){
-  if (z == 0){
-    clear();
-  }else {
-    new_clear(window.value);
-  }
-}
-*/
 
 // event listeners for buttons
-
-
-  document.getElementById('new_grid').addEventListener("click", function(){new_grid(hide_current_div[z])});
+  document.getElementById('new_grid').addEventListener("click", function(){
+    new_grid()
+  });
   document.getElementById('clear').addEventListener("click", clear);
 
-  /*
-need to make a new function for changing color and clear and hide for when after you click new grid one time.
-
-so i can change the new_grid so that it takes a parameter of 'A' and then it clears the current grid and makes a new grid with the ID of 'id0'
-
-then i will need a new new_grid function but used for everytime besides the frist time that will clear 'idA' and replace it with 'id1' and then use the ++ so that
-   */
+// right now when you try to go from a new grid to a bigger new grid it doesnt work
+// but you can go from a bigger one to smaller one, but the contaienr gets messed up at bottom
