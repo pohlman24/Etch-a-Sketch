@@ -1,7 +1,9 @@
 const container = document.querySelector('#container');
 const gridDiv = document.createElement('div');
-let hide_current_div = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']; //list to get ride of current grid
-let z = 0;  //
+//list to get ride of current grid
+let hide_current_div = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+// z is select the item in the array
+let z = 0;
 window.grid_size = 16;
 
 //makes the default 16x16 Grid
@@ -30,9 +32,7 @@ function new_grid() {
   hide();
   window.grid_size = parseInt(prompt('What Grid Size?'));
   let grid_size = window.grid_size
-  console.log('old z ' + hide_current_div[z]);
   z = z + 1;
-  console.log('new z ' + hide_current_div[z]);
   root.style.setProperty('--grid_row', grid_size);
   root.style.setProperty('--grid_col', grid_size);
     //puts new grid on screen
@@ -47,7 +47,7 @@ function new_grid() {
       document.getElementById(cell).style.backgroundColor = '#F65058FF'; //color red
     })
 }
-// --------------------------------part of function new_grid----------------------------------- function to get ride of current grid on screen
+// --------------------------------part of function new_grid------------ function to get ride of current grid on screen
   function hide() {
     if (z == 0){
       for(n = 0; n< 256; n ++) {
@@ -56,11 +56,9 @@ function new_grid() {
       cellid.remove();
       }
     }else {
-      console.log('the window.grid_size is ' + window.grid_size);
       for(n = 0; n< window.grid_size * window.grid_size; n ++) {
       let cell = 'id' + hide_current_div[z] + n;
       let cellid = document.getElementById(cell);
-      console.log('the cell is ' + cell);
       cellid.remove();
       }
     }
