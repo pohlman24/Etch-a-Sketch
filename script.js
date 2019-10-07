@@ -28,6 +28,7 @@ function clear() {
     document.getElementById(cell).style.backgroundColor = '#FBDE44FF'; // color yellow
   }
 }
+// function for new grid button
 function new_grid() {
   let root = document.documentElement;
   hide();
@@ -47,8 +48,9 @@ function new_grid() {
     document.getElementById(cell).addEventListener('mouseover', function (){
       document.getElementById(cell).style.backgroundColor = '#F65058FF'; //color red
     })
+  }
 }
-// --------------------------------part of function new_grid------------ function to get ride of current grid on screen
+// --part of function new_grid-- function to get ride of current grid on screen
   function hide() {
     if (z == 0){
       for(n = 0; n< 256; n ++) {
@@ -64,16 +66,10 @@ function new_grid() {
       }
     }
   }
-}
-
-// event listeners for buttons
-  document.getElementById('new_grid').addEventListener("click", function(){
-    new_grid()
-  });
-  document.getElementById('clear').addEventListener("click", clear);
-  document.getElementById('border').addEventListener('click', function(){
-    if (on == false){
-      for(n = 0; n< window.grid_size * window.grid_size; n ++) {
+// function to either remove or add the border
+function border(){
+  if (on == false){
+    for(n = 0; n< window.grid_size * window.grid_size; n ++) {
       let cell = 'id' + hide_current_div[z] + n;
       let cellid = document.getElementById(cell);
       cellid.style.border = '1px solid gray';
@@ -81,13 +77,17 @@ function new_grid() {
     }
   }else{
     for(n = 0; n< window.grid_size * window.grid_size; n ++) {
-    let cell = 'id' + hide_current_div[z] + n;
-    let cellid = document.getElementById(cell);
-    cellid.style.border = '0';
-    on = false;
+      let cell = 'id' + hide_current_div[z] + n;
+      let cellid = document.getElementById(cell);
+      cellid.style.border = '0';
+      on = false;
+    }
   }
 }
-})
+// event listeners for buttons
+document.getElementById('new_grid').addEventListener("click", new_grid);
+document.getElementById('clear').addEventListener("click", clear);
+document.getElementById('border').addEventListener('click', border);
 
 
 
