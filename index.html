@@ -5,15 +5,21 @@
     <link href = 'style.css' rel = "stylesheet" type = 'text/css'>
   </head>
   <body>
-    <div class ='buttons'>
-      <button id='clear'>Clear</button>
-      <button id='new_grid'>New</button>
-      <button id='border'>Border</button>
-      <button id='rainbow_brush'>Rainbow</button>
-      <button id='red_brush'>Red</button>
-    </div>
-    <div id = 'container'>
+    <div class="content">
+      <div class='buttons'>
+        <div style="position:relative;">
+          <button class="btn" id='clear'>Clear</button>
+          <button class="btn" id='new_grid'>New</button>
+        </div>
+        <div style="position: absolute; right: 0;">
+          <button class="btn" id='random_brush'>Random</button>
+          <button class="btn" id='red_brush'>Red</button>
+          <button style="margin-right:0px;" class="btn" id='border'>Border</button>
+        </div>
+      </div>
+      <div id='container'>
+      </div>
     </div>
   </body>
-  <script type = 'text/javascript' src='script.js'>  </script>
+  <script type='text/javascript' src='script.js'>  </script>
 </html>
