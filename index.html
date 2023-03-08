@@ -6,20 +6,21 @@
   </head>
   <body>
     <div class="content">
-      <div class='buttons'>
+      <div class='buttons' draggable="false">
         <div style="position:relative;">
           <button class="btn" id='clear'>Clear</button>
           <button class="btn" id='new_grid'>New</button>
+          <button class="btn" id='border' style="background-color: rgb(71, 87, 123); margin-right:0px;">Border</button>
         </div>
         <div style="position: absolute; right: 0;">
           <button class="btn" id='random_brush'>Random</button>
-          <button class="btn" id='red_brush'>Red</button>
-          <button style="margin-right:0px;" class="btn" id='border'>Border</button>
+          <button class="btn" id='eraser'>Eraser</button>
+          <button class="btn" id='red_brush' style="margin-right:0px; background-color: rgb(71, 87, 123);">Red</button>
         </div>
       </div>
-      <div id='container'>
+      <div id='container' draggable="false">
       </div>
     </div>
   </body>
-  <script type='text/javascript' src='script.js'>  </script>
+  <script type='text/javascript' src='script.js'> </script>
 </html>
