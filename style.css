@@ -13,8 +13,6 @@
 .grid {
   background-color: #FBDE44FF; /* yellow color */
   border: 1px solid gray;
-  /* min-width: 30px;
-  min-height: 30px; */
   user-select: none;
 }
 
@@ -51,9 +49,10 @@
 .content{
   position: absolute;
   top: 10%;
-  left: 25%;
+  left: 50%;
   height: 80%;
   width: 50%;
   min-width: 500px;
-  max-width: 872px;
+  min-height: 500px;
+  transform: translate(-50%, 0%);
 }
